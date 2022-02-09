@@ -7,7 +7,7 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 export default function InputField({type = "none", title = "Title:", icon = null, placeholder = "Enter text ...", value = "", onChangeValue = null , style})
 {
 	const [selected, setSelected] = React.useState(false);
-	const [visible, setVisible] = React.useState(true);
+	const [visible, setVisible] = React.useState(type != "password");
 
 	let button = <></>;
 

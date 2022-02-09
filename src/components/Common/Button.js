@@ -16,7 +16,6 @@ export default function Button({size = 20, color = "primary", appearance = "fill
 			bgColor = "transparent";
 			break;
 		case "ghost":
-
 			bgColor += "05"; // Add opacity to background color.
 			break;
 		default:

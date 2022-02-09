@@ -44,7 +44,7 @@ export default function LoginScreen({props})
 				style={styles.button}
 				size={22}
 				onPress={() => {
-					console.log("Login ...");
+					
 				}}
 			/>
 		</View>
