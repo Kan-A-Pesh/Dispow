@@ -1,4 +1,4 @@
-import { Image, StyleSheet } from "react-native";
+import { Image, StyleSheet, View } from "react-native";
 import AppStyles from "../../styles/AppStyles";
 import { LinearGradient } from 'expo-linear-gradient';
 import Label from "../../components/Common/Label";
@@ -8,25 +8,21 @@ export default function WelcomeScreen({navigation})
 {	
 	return (
 		<LinearGradient colors={['#24063F', '#102542']} style={[AppStyles.welcomeScreen]}>
-			<Image
+			{/* <Image
 				source={require('../../../assets/icons/icon.png')}
-				style={{
-					height: 200,
-					width: 206,
-					resizeMode: 'center'
-				}}
-			/>
+				style={styles.icon}
+			/> */}
 			<Label
 				type="extraBold"
 				size={68}
-				style={[styles.title]}
+				style={styles.title}
 			>
 				Welcome!
 			</Label>
 			<Label
 				type="regular"
 				size={20}
-				style={[styles.text]}
+				style={styles.text}
 			>
 				Start comparing your free time with your friends now!
 			</Label>
@@ -63,5 +59,10 @@ const styles = StyleSheet.create({
 	text: {
 		textAlign: "center",
 		marginBottom: 45
-	}
+	},
+	icon: {
+		height: 200,
+		width: 206,
+		resizeMode: 'center',
+	},
 })

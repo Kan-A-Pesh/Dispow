@@ -6,7 +6,6 @@ export default StyleSheet.create({
 
 	welcomeScreen: {
 		padding: 25,
-		paddingTop: 100,
 		flexGrow: 1,
 		justifyContent: 'center',
 		alignItems: 'center',
@@ -16,8 +15,9 @@ export default StyleSheet.create({
 		backgroundColor: Colors.white,
 		borderTopLeftRadius: 25,
 		borderTopRightRadius: 25,
-		justifyContent: 'center',
+		justifyContent: 'space-evenly',
 		alignItems: 'center',
+		padding: 25,
 	}
 
 });

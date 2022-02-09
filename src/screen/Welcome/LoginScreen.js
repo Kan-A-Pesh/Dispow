@@ -1,5 +1,6 @@
 import React from "react";
-import { View } from "react-native";
+import { StyleSheet, View } from "react-native";
+import Button from "../../components/Common/Button";
 import InputField from "../../components/Common/InputField";
 import Label from "../../components/Common/Label";
 import AppStyles from "../../styles/AppStyles";
@@ -18,21 +19,48 @@ export default function LoginScreen({props})
 			>
 				Login
 			</Label>
-			<InputField
-				title="Username:"
-				placeholder="Enter username..."
-				icon="account-outline"
-				value={username}
-				onChangeValue={setUsername}
-			/>
-			<InputField
-				title="Password:"
-				placeholder="Enter password..."
-				type="password"
-				icon="lock-outline"
-				value={password}
-				onChangeValue={setPassword}
+			<View style={styles.inputGroup}>
+				<InputField
+					title="Username:"
+					placeholder="Enter username..."
+					type="username"
+					icon="account-outline"
+					value={username}
+					onChangeValue={setUsername}
+					style={styles.input}
+				/>
+				<InputField
+					title="Password:"
+					placeholder="Enter password..."
+					type="password"
+					icon="lock-outline"
+					value={password}
+					onChangeValue={setPassword}
+					style={styles.input}
+				/>
+			</View>
+			<Button 
+				text="Login"
+				style={styles.button}
+				size={22}
+				onPress={() => {
+					console.log("Login ...");
+				}}
 			/>
 		</View>
 	);
 }
+
+const styles = StyleSheet.create({
+	input: {
+		width: "100%",
+		marginVertical: 7
+	},
+	inputGroup: {
+		width: "100%",
+	},
+	button: {
+		width: "75%",
+		margin: 12.5
+	},
+});
