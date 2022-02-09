@@ -1,8 +1,8 @@
 import { Image, StyleSheet } from "react-native";
 import AppStyles from "../../styles/AppStyles";
 import { LinearGradient } from 'expo-linear-gradient';
-import Label from "../../components/Primary/Label";
-import Button from "../../components/Primary/Button";
+import Label from "../../components/Common/Label";
+import Button from "../../components/Common/Button";
 
 export default function WelcomeScreen({navigation})
 {	

@@ -1,5 +1,5 @@
 import { View } from "react-native";
-import Label from "../../components/Primary/Label";
+import Label from "../../components/Common/Label";
 import AppStyles from "../../styles/AppStyles";
 import Colors from "../../styles/Colors";
 

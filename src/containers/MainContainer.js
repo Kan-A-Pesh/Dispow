@@ -1,8 +1,6 @@
 import Tabbar from "@mindinventory/react-native-tab-bar-interaction";
-import Icon from '@mdi/react';
 import Colors from '../styles/Colors'
-
-import { mdiCompass, mdiAccountCircleOutline, mdiCalendarText } from '@mdi/js'; 
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 export default function MainContainer({props})
 {
@@ -10,18 +8,18 @@ export default function MainContainer({props})
 	const tabs = [
 		{
 			name: 'Discover',
-			activeIcon: <Icon path={ mdiCompass } color={Colors.primary} size={25} />,
-			inactiveIcon: <Icon path={ mdiCompass } color={Colors.blackOpacity5} size={25} />
+			activeIcon: <MaterialCommunityIcons name="compass" color={Colors.primary} size={25} />,
+			inactiveIcon: <MaterialCommunityIcons name="compass-outline" color={Colors.blackOpacity5} size={25} />
 		},
 		{
 			name: 'Compare',
-			activeIcon: <Icon path={ mdiCalendarText } color={Colors.primary} size={25} />,
-			inactiveIcon: <Icon path={ mdiCalendarText } color={Colors.blackOpacity5} size={25} />
+			activeIcon: <MaterialCommunityIcons name="calendar-text" color={Colors.primary} size={25} />,
+			inactiveIcon: <MaterialCommunityIcons name="calendar-text-outline" color={Colors.blackOpacity5} size={25} />
 		},
 		{
 			name: 'Profile',
-			activeIcon: <Icon path={ mdiAccountCircleOutline } color={Colors.primary} size={25} />,
-			inactiveIcon: <Icon path={ mdiAccountCircleOutline } color={Colors.blackOpacity5} size={25} />
+			activeIcon: <MaterialCommunityIcons name="account-circle" color={Colors.primary} size={25} />,
+			inactiveIcon: <MaterialCommunityIcons name="account-circle-outline" color={Colors.blackOpacity5} size={25} />
 		},
 	];
 
