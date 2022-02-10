@@ -1,8 +1,10 @@
-import { StyleSheet, Text, TouchableOpacity } from "react-native";
-import Colors from "../../styles/Colors";
+import { StyleSheet, TouchableOpacity } from "react-native";
+
 import Label from "./Label";
 
-export default function Button({size = 20, color = "primary", appearance = "filled", style = null, text = "Click me!", onPress})
+import Colors from "../../styles/Colors";
+
+export default function Button({size = 20, color = "primary", appearance = "filled", disabled = false, style = null, text = "Click me!", onPress})
 {
 	if (color === "primary") color = Colors.primary;
 	if (color === "secondary") color = Colors.secondary;
@@ -29,6 +31,7 @@ export default function Button({size = 20, color = "primary", appearance = "fill
 			borderColor: color,
 			borderWidth: (appearance === "outlined")?2:0,
 			paddingVertical: (appearance === "outlined")?10:12,
+			opacity: disabled?0.3:1,
 		},
 		text: {
 			fontSize: size
@@ -43,6 +46,7 @@ export default function Button({size = 20, color = "primary", appearance = "fill
 				style
 			]}
 			onPress={onPress}
+			disabled={disabled}
 		>
 			<Label
 				color={textColor}

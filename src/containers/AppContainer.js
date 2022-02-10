@@ -1,5 +1,6 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { CardStyleInterpolators, createStackNavigator, HeaderStyleInterpolators } from '@react-navigation/stack';
+import ModalPage from '../screen/Settings/ModalPage';
 import LoginScreen from '../screen/Welcome/LoginScreen';
 
 import RegisterScreen from '../screen/Welcome/RegisterScreen';
@@ -75,6 +76,22 @@ export default function AppContainer()
 					component={MainContainer}
 					options={{
 						headerShown: false,
+					}}
+				/>
+				<Stack.Screen
+					name="Modal"
+					component={ModalPage}
+					options={{
+						headerShown: false,
+						gestureDirection: "vertical",
+						gestureEnabled: true,
+						animationEnabled: true,
+						cardOverlayEnabled: true,
+						cardStyleInterpolator: CardStyleInterpolators.forFadeFromCenter,
+						cardStyle: {
+							backgroundColor: "transparent",
+						},
+						presentation: 'transparentModal',
 					}}
 				/>
 			</Stack.Navigator>

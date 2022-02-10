@@ -1,12 +1,16 @@
 import React from "react";
 import { StyleSheet, View } from "react-native";
+
 import Button from "../../components/Common/Button";
 import InputField from "../../components/Common/InputField";
 import Label from "../../components/Common/Label";
+
 import AppStyles from "../../styles/AppStyles";
 import Colors from "../../styles/Colors";
 
-export default function LoginScreen({props})
+import login from "../../../api/auth/login";
+
+export default function LoginScreen({navigation})
 {
 	const [username, setUsername] = React.useState("");
 	const [password, setPassword] = React.useState("");
@@ -42,9 +46,16 @@ export default function LoginScreen({props})
 			<Button 
 				text="Login"
 				style={styles.button}
+				disabled={ !password || !username }
 				size={22}
 				onPress={() => {
-					
+					login(username, password)
+						.then(() => {
+							navigation.jumpTo("Main");
+						})
+						.catch((error) => {
+							navigation.push("Modal");
+						});
 				}}
 			/>
 		</View>
