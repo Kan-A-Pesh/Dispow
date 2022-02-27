@@ -14,6 +14,7 @@ export default function LoginScreen({navigation})
 {
 	const [username, setUsername] = React.useState("");
 	const [password, setPassword] = React.useState("");
+	const [loading, setLoading] = React.useState(false);
 
 	return (
 		<View style={AppStyles.authScreen}>
@@ -30,6 +31,7 @@ export default function LoginScreen({navigation})
 					type="username"
 					icon="account-outline"
 					value={username}
+					disabled={loading}
 					onChangeValue={setUsername}
 					style={styles.input}
 				/>
@@ -39,6 +41,7 @@ export default function LoginScreen({navigation})
 					type="password"
 					icon="lock-outline"
 					value={password}
+					disabled={loading}
 					onChangeValue={setPassword}
 					style={styles.input}
 				/>
@@ -46,16 +49,21 @@ export default function LoginScreen({navigation})
 			<Button 
 				text="Login"
 				style={styles.button}
-				disabled={ !password || !username }
+				disabled={ !(password && username && !loading)  }
 				size={22}
 				onPress={() => {
+					setLoading(true);
 					login(username, password)
 						.then(() => {
 							navigation.jumpTo("Main");
 						})
 						.catch((error) => {
 							navigation.push("Modal");
+						})
+						.finally(() => {
+							setLoading(false);
 						});
+
 				}}
 			/>
 		</View>

@@ -1,27 +1,45 @@
-import { View, StyleSheet } from "react-native";
+import { View, StyleSheet, TouchableWithoutFeedback } from "react-native";
 import Label from "../../components/Common/Label";
 import Colors from "../../styles/Colors";
 
-export default function ModalPage() {
+export default function ModalPage({onDismiss, onClose}) {
+
 	return (
-		<View
-			style={styles.background}
-		>
-			<View
-				style={styles.modal}
+		<>
+			<TouchableWithoutFeedback
+				style={styles.backButton}
+				onPress={onDismiss}
 			>
-				<Label
-					color={Colors.black}
-					size={50}
+				<View
+					style={styles.backButton}
+				/>
+			</TouchableWithoutFeedback>
+			<View 
+				style={styles.background}
+			>
+				<View
+					style={styles.modal}
 				>
-					Error
-				</Label>
+					<Label
+						color={Colors.black}
+						size={50}
+					>
+						Error
+					</Label>
+				</View>
 			</View>
-		</View>
+		</>
 	);
 }
 
 const styles = StyleSheet.create({
+	backButton: {
+		position: 'absolute',
+		left: 0,
+		top: 0,
+		width: '100%',
+		height: '100%',
+	},
 	background: {
 		flex: 1,
 		justifyContent: "center",

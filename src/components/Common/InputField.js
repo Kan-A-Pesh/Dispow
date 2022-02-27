@@ -4,7 +4,7 @@ import Colors from "../../styles/Colors";
 import Label from "./Label";
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
-export default function InputField({type = "none", title = "Title:", icon = null, placeholder = "Enter text ...", value = "", onChangeValue = null , style})
+export default function InputField({type = "none", title = "Title:", icon = null, placeholder = "Enter text ...", value = "", onChangeValue = null, disabled = false, style})
 {
 	const [selected, setSelected] = React.useState(false);
 	const [visible, setVisible] = React.useState(type != "password");
@@ -44,6 +44,8 @@ export default function InputField({type = "none", title = "Title:", icon = null
 					onChangeText={onChangeValue}
 					placeholder={placeholder}
 					textContentType={type}
+					editable={!disabled}
+             		selectTextOnFocus={!disabled}
 					secureTextEntry={!visible}
 					style={styles.input}
 					onFocus={() => setSelected(true)}
