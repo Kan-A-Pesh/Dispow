@@ -8,7 +8,12 @@ const setDataAsync = async (key, value = null) => {
 	await SecureStore.setItemAsync(key, JSON.stringify(value));
 }
 
+const deleteDataAsync = async (key) => {
+	await SecureStore.deleteItemAsync(key);
+}
+
 export default {
 	getDataAsync: getDataAsync,
-	setDataAsync: setDataAsync
+	setDataAsync: setDataAsync,
+	deleteDataAsync: deleteDataAsync
 }

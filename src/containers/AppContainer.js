@@ -1,11 +1,13 @@
+import React from "react";
+
 import { NavigationContainer } from '@react-navigation/native';
 import { CardStyleInterpolators, createStackNavigator, HeaderStyleInterpolators } from '@react-navigation/stack';
-import ModalPage from '../screen/Settings/ModalPage';
 import LoginScreen from '../screen/Welcome/LoginScreen';
 
 import RegisterScreen from '../screen/Welcome/RegisterScreen';
 import WelcomeScreen from '../screen/Welcome/WelcomeScreen';
 import MainContainer from './MainContainer';
+import EditProfileModal from "../screen/Main/EditProfileModal";
 
 const Stack = createStackNavigator();
 
@@ -49,6 +51,7 @@ const options = {
 
 export default function AppContainer()
 {
+
 	return (
 		<NavigationContainer>
 			<Stack.Navigator
@@ -79,19 +82,17 @@ export default function AppContainer()
 					}}
 				/>
 				<Stack.Screen
-					name="Modal"
-					component={ModalPage}
+					name="EditProfile"
+					component={EditProfileModal}
 					options={{
-						headerShown: false,
+						cardStyleInterpolator: CardStyleInterpolators.forVerticalIOS,
+						headerStyleInterpolator: HeaderStyleInterpolators.forFade,
 						gestureDirection: "vertical",
-						gestureEnabled: true,
-						animationEnabled: true,
-						cardOverlayEnabled: true,
-						cardStyleInterpolator: CardStyleInterpolators.forFadeFromCenter,
-						cardStyle: {
-							backgroundColor: "transparent",
+						headerShown: false,
+						transitionSpec: {
+							open: config,
+							close: config,
 						},
-						presentation: 'transparentModal',
 					}}
 				/>
 			</Stack.Navigator>

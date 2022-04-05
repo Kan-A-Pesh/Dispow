@@ -1,6 +1,7 @@
 import { create } from "apisauce";
 import config from "./config";
 import storage from "./storage";
+import logout from "../auth/logout";
 
 const client = create({
 	baseURL: config.endPoint,

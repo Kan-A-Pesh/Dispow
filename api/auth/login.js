@@ -1,6 +1,7 @@
-import client from "../common/client"
+import client from "../common/client";
+import storage from "../common/storage";
 
-export default async (username, password) => {
+export default async function login(username, password) {
 	let result = await client.post(
 		"/sessions/",
         {
@@ -19,8 +20,9 @@ export default async (username, password) => {
 	if (result.status == 201)
 	{
 		let authToken = result.data.authToken;
-		let userId = result.data.userIdd;
-
+		let userId = result.data.userId;
+		global.userId = userId;
+		
 		await storage.setDataAsync("auth",{
 			token: authToken,
 			id: userId
@@ -29,5 +31,5 @@ export default async (username, password) => {
 		return;
 	}
 
-	throw "Unknown error, please retry later ...";
+	throw "Unknown error, please retry later ... (status: " + result.status + ")";
 }

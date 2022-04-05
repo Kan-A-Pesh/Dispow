@@ -1,11 +1,24 @@
+import React from "react";
+
 import { Image, StyleSheet, View } from "react-native";
 import AppStyles from "../../styles/AppStyles";
 import { LinearGradient } from 'expo-linear-gradient';
 import Label from "../../components/Common/Label";
 import Button from "../../components/Common/Button";
+import storage from "../../../api/common/storage";
 
 export default function WelcomeScreen({navigation})
 {	
+	React.useEffect(() => {
+		storage.getDataAsync("auth").then(async (auth) => {
+			if (auth)
+			{
+				global.userId = auth.id;
+				navigation.replace("Main");
+			}
+		});
+	}, []);
+
 	return (
 		<LinearGradient colors={['#24063F', '#102542']} style={[AppStyles.welcomeScreen]}>
 			{/* <Image

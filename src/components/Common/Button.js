@@ -1,3 +1,4 @@
+import React from "react";
 import { StyleSheet, TouchableOpacity } from "react-native";
 
 import Label from "./Label";
@@ -22,6 +23,8 @@ export default function Button({size = 20, color = "primary", appearance = "fill
 			break;
 		default:
 			textColor = Colors.white;
+			if (color === "white")
+				textColor = Colors.black;
 			break;
 	}
 

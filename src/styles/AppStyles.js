@@ -18,6 +18,9 @@ export default StyleSheet.create({
 		justifyContent: 'space-evenly',
 		alignItems: 'center',
 		padding: 25,
+	},
+	mainScreen: {
+		flexGrow: 1,
+		backgroundColor: Colors.white,
 	}
-
 });
