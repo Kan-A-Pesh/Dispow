@@ -25,7 +25,7 @@
     "expo-font": "~10.0.4",
     "expo-linear-gradient": "~11.0.3",
     "expo-secure-store": "~11.1.0",
-    "expo-splash-screen": "~0.14.1",
+    "expo-splash-screen": "~0.20.2",
     "expo-status-bar": "~1.2.0",
     "intl": "^1.2.5",
     "jsc-android": "^250230.2.1",
